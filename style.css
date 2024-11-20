@@ -299,8 +299,31 @@ a.link {
 /* Hero Section */
 .hero-section {
     overflow: hidden;
+    position: relative;
+    height: 100vh;
+}
+.spotlight-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
 }
 
+.spotlight-image img {
+    width: 100%;
+    position: relative;
+    display: block;
+}
+.spotlight-image::after {
+    content: "";
+    position: absolute;
+    background-color: #000000bd;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
 .hero {
     display: grid;
     padding-top: 8em;
@@ -309,8 +332,9 @@ a.link {
     grid-template-rows: auto;
     grid-template-columns: 1fr;
     grid-auto-columns: 1fr;
-    align-content: start;
+    align-content: center;
     display: grid;
+    height: 100vh;
 }
 
 .hero-name {
@@ -724,7 +748,13 @@ h2.large {
         padding-right: 5vw;
     }
     .hero-section , .hero {
-        height: 80vh;
+        height: 90vh;
+    }
+    .spotlight-image {
+        height: 90vh;
+    }
+    .spotlight-image img {
+        height: 90vh;
     }
     .hero {
         align-content: center;

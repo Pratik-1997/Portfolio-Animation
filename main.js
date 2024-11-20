@@ -27,6 +27,7 @@ gsap.fromTo(
   }
 );
 
+
 var tl = gsap.timeline({
   scrollTrigger: {
     trigger: ".hero-section .hero-role",
@@ -132,3 +133,36 @@ boxes.forEach(function (elem) {
 });
 
 // Projects Section End
+
+
+// Skills Section End
+var tl3 = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".skills-data",
+    start: "top 30%", // When the top of the section reaches 50% of the viewport
+    end: "top 30%", // When the top of the section reaches 30% of the viewport
+    scrub: 5,
+    markers: true, // Uncomment for debugging
+    onEnter: () => tl3.play(), // Ensure animation starts when the section enters
+    onLeave: () => tl3.pause(), // Pause the animation when the section leaves
+  },
+});
+
+tl3.fromTo(
+  ".single-data",
+  // Starting properties
+  {
+    opacity: 0,
+    y: 50, // Adding a small downward offset for a smoother effect
+  },
+  // Ending properties
+  {
+    opacity: 1,
+    y: 0,
+    stagger: 0.3, // Staggering elements
+    duration: 0.8,
+    ease: "power3.out",
+    delay: 0.2, // Adding delay to each animation
+  },
+  "-=0.5" // Offset timing
+);
