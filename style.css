@@ -136,6 +136,7 @@ a {
 
 * {
     font-family: "Roboto", sans-serif;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -635,13 +636,10 @@ h2.large {
     width: auto;
 }
 
-.skills-list li:nth-child(3n + 1) {
+.skills-list li:nth-child(2n + 1) {
     padding-left: 2em;
 }
 
-.skills-list li:nth-child(2n + 2) {
-    padding-left: 4em;
-}
 
 
 /* Projects */
@@ -697,6 +695,21 @@ h2.large {
 }
 
 /* Media Query */
+@media screen and (min-width: 1024px) {
+    /* Custom Scroll Bar */
+    *::-webkit-scrollbar {
+      width: 10px;
+    }
+    *::-webkit-scrollbar-track {
+      background-color: #000000;
+    }
+    *::-webkit-scrollbar-thumb {
+      background-color: #7e3a3b;
+      height: 1px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  }
 @media screen and (max-width:1620px) {
     .container {
         max-width: 90%;

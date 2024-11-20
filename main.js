@@ -139,30 +139,39 @@ boxes.forEach(function (elem) {
 var tl3 = gsap.timeline({
   scrollTrigger: {
     trigger: ".skills-data",
-    start: "top 30%", // When the top of the section reaches 50% of the viewport
-    end: "top 30%", // When the top of the section reaches 30% of the viewport
+    start: "top 50%", 
+    end: "top 60%", 
     scrub: 5,
-    markers: true, // Uncomment for debugging
-    onEnter: () => tl3.play(), // Ensure animation starts when the section enters
-    onLeave: () => tl3.pause(), // Pause the animation when the section leaves
+    // markers: true, 
+    toggleActions: "play reverse play reverse",
+    onEnter: () => tl3.play(), 
+    onLeave: () => tl3.pause(), 
   },
 });
 
 tl3.fromTo(
   ".single-data",
-  // Starting properties
   {
     opacity: 0,
-    y: 50, // Adding a small downward offset for a smoother effect
+    y: 50, 
   },
-  // Ending properties
   {
     opacity: 1,
     y: 0,
-    stagger: 0.3, // Staggering elements
+    stagger: 0.3,
     duration: 0.8,
     ease: "power3.out",
-    delay: 0.2, // Adding delay to each animation
+    delay: 0.5,
   },
-  "-=0.5" // Offset timing
+  "-=1" 
+);
+
+tl3.fromTo(
+  ".single-data .left-data",
+  {
+    left: '-10%',
+  },
+  {
+    left: 0
+  }
 );
