@@ -614,6 +614,7 @@ h2.large {
     left: 0;
     top: 0;
     z-index: 2;
+    
 }
 
 .skill-title {
@@ -736,6 +737,9 @@ h2.large {
     }
     .single-data .left-block {
         grid-row-gap: 5em;
+    }
+    .hero-name , .hero-role {
+        font-size: 6vw;
     }
 }
 @media screen and (max-width: 991px) {

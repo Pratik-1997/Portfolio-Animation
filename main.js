@@ -136,42 +136,66 @@ boxes.forEach(function (elem) {
 
 
 // Skills Section End
-var tl3 = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".skills-data",
-    start: "top 50%", 
-    end: "top 60%", 
-    scrub: 5,
-    // markers: true, 
-    toggleActions: "play reverse play reverse",
-    onEnter: () => tl3.play(), 
-    onLeave: () => tl3.pause(), 
-  },
+gsap.utils.toArray('.single-data').forEach((element) => {
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: element,
+      start: "top 80%", // Adjust based on when you want the animation to start
+      end: "top 60%",
+      scrub: 2, // Add slight scroll scrubbing for smoother effect
+      toggleActions: "play reverse play reverse",
+    },
+  });
+
+  tl.fromTo(
+    element,
+    {
+      opacity: 0,
+      y: 50,
+    },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: "power3.out",
+    }
+  )
+  .fromTo(
+    element.querySelector('.left-block'),
+    {
+      left: '-10%',
+    },
+    {
+      left: '0%',
+      duration: 0.8,
+      ease: 'power3.out',
+    },
+    '-=0.6' // Overlap with the previous animation
+  ).fromTo(
+    element.querySelector('.right-block'),
+    {
+      left: '10%',
+    },
+    {
+      left: '0%',
+      duration: 0.8,
+      ease: 'power3.out',
+    },
+    '-=0.6' // Overlap with the previous animation
+  ).fromTo(
+    element.querySelectorAll('.skills-list li'),
+    {
+      opacity: 0,
+      y: 20,
+    },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 0.5,
+      stagger: 0.2, // Animate each <li> with a delay
+      ease: "power3.out",
+    },
+    '-=0.4' // Slight overlap with the previous animation
+  );
+  
 });
-
-tl3.fromTo(
-  ".single-data",
-  {
-    opacity: 0,
-    y: 50, 
-  },
-  {
-    opacity: 1,
-    y: 0,
-    stagger: 0.3,
-    duration: 0.8,
-    ease: "power3.out",
-    delay: 0.5,
-  },
-  "-=1" 
-);
-
-tl3.fromTo(
-  ".single-data .left-data",
-  {
-    left: '-10%',
-  },
-  {
-    left: 0
-  }
-);
