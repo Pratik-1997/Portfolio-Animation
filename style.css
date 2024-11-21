@@ -834,6 +834,9 @@ h2.large {
         right: 0;
         transform: none;
     }
+    .hero-name, .hero-role {
+        font-size: 8vw;
+    }
 }
 
 
